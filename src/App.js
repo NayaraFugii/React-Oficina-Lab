@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
+import React, {useState} from 'react';
+
+import User from './components/User';
+
+const data = [
+  {
+    name:"Isa",
+    description: "Gosta de Sorvete"    
+  },
+  {
+    name:"Cintia",
+    description: "Gosta de Goiaba"    
+  },{
+    name:"Moni",
+    description: "Gosta de Mouse"    
+  },
+  { name:"Moni",
+    description: "Gosta de Mouse"    
+  }
+];
+
+const App= ()=> {
+  const [users,setUsers] = useState(data);
+  return (    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        users.map(( User , index) => (
+          <User 
+          key = {index}
+          name={data.name} 
+          description={data.description}
+          />
+        ))
+        }
+        <form>
+         
+        </form>
+     
     </div>
+    // https://pokeapi.co/api/v2/type/5
+
+    
   );
 }
 
